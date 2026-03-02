@@ -1,0 +1,329 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Nunito:wght@400;500;600&family=Parisienne&display=swap");
+
+:root {
+  --paper: #fff2f8;
+  --ink: #5f3e52;
+  --accent: #ea9dc0;
+  --accent-hover: #d97aac;
+  --line-soft: rgba(95, 62, 82, 0.22);
+  --line-strong: rgba(95, 62, 82, 0.78);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  color: var(--ink);
+  font-family: "Nunito", "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+  background: var(--paper);
+}
+
+.app {
+  width: 100%;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 28px 16px;
+}
+
+.app.stage-select {
+  background-color: #fff1f7;
+  background-image:
+    radial-gradient(circle at 14% 18%, rgba(255, 184, 216, 0.42) 0 1px, transparent 1px),
+    radial-gradient(circle at 72% 66%, rgba(255, 164, 205, 0.35) 0 1px, transparent 1px),
+    linear-gradient(0deg, rgba(255, 206, 228, 0.22), rgba(255, 206, 228, 0.22));
+  background-size: 160px 160px, 210px 210px, 100% 100%;
+}
+
+.app.stage-slideshow,
+.app.stage-envelope {
+  background-color: #ffffff;
+  background-image: var(--girl-bg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.screen {
+  width: min(760px, 100%);
+  min-height: 80vh;
+  display: grid;
+  place-content: center;
+}
+
+.screen-select {
+  justify-items: center;
+}
+
+h1 {
+  margin: 0 0 28px;
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  font-family: "Cormorant Garamond", "Times New Roman", serif;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.name-list {
+  width: min(420px, 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.name-list button {
+  border: 0;
+  border-radius: 999px;
+  padding: 12px 16px;
+  background: var(--accent);
+  color: #fff7fb;
+  font: inherit;
+  font-size: 1.02rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  box-shadow: 0 6px 14px rgba(217, 122, 172, 0.28);
+}
+
+.name-list button:hover {
+  transform: translateY(-1px);
+  background: var(--accent-hover);
+}
+
+.screen-slideshow {
+  gap: 14px;
+}
+
+.stories-progress {
+  width: min(660px, 100%);
+  display: flex;
+  gap: 7px;
+  margin-bottom: 4px;
+  padding: 0;
+}
+
+.story-segment {
+  display: block;
+  flex: 1;
+  height: 5px;
+  border-radius: 999px;
+  background: rgba(120, 120, 120, 0.55);
+  overflow: hidden;
+}
+
+.story-fill {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 999px;
+  background: #ffffff;
+  transform-origin: left center;
+  transform: scaleX(0);
+  transition: transform 0.08s linear;
+  will-change: transform;
+}
+
+.embla {
+  width: min(660px, 100%);
+  height: min(84vh, 770px);
+  overflow: hidden;
+}
+
+.embla-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  touch-action: pan-y pinch-zoom;
+}
+
+.slide-card {
+  flex: 0 0 78%;
+  width: min(560px, 100%);
+  min-width: 0;
+  transition: filter 0.35s ease, opacity 0.35s ease;
+}
+
+.slide-card.left {
+  align-self: flex-start;
+}
+
+.slide-card.right {
+  align-self: flex-end;
+}
+
+.slide-card img {
+  display: block;
+  width: 100%;
+  height: min(58vh, 510px);
+  object-fit: cover;
+}
+
+.slide-card p {
+  margin: 12px 2px 0;
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-size: 1.04rem;
+  line-height: 1.42;
+  font-weight: 700;
+  color: #4d2b3d;
+  background: rgba(255, 250, 254, 0.86);
+  box-shadow: 0 6px 14px rgba(95, 62, 82, 0.16);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.45);
+  text-align: left;
+}
+
+.slide-card.right p {
+  text-align: right;
+}
+
+.slide-card.past {
+  opacity: 0.12;
+}
+
+.slide-card.preview {
+  filter: blur(8px);
+  opacity: 0.72;
+}
+
+.slide-card.preview.sharp {
+  filter: blur(0);
+  opacity: 1;
+}
+
+.screen-envelope {
+  justify-items: center;
+}
+
+.letter-zone {
+  width: 100%;
+  min-height: 620px;
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+
+.envelope {
+  position: relative;
+  width: min(360px, 84vw);
+  height: min(245px, 58vw);
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  z-index: 5;
+}
+
+.envelope-back,
+.envelope-front {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 72%;
+  background: #fffafd;
+  border: 1px solid #efcfe0;
+}
+
+.envelope-front {
+  background: #fff9fc;
+  clip-path: polygon(0 100%, 50% 46%, 100% 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  z-index: 4;
+}
+
+.envelope-flap {
+  position: absolute;
+  top: 28%;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: min(180px, 42vw) solid transparent;
+  border-right: min(180px, 42vw) solid transparent;
+  border-top: min(122px, 29vw) solid #fff8fc;
+  transform-origin: top;
+  transition: transform 0.85s ease;
+  filter: drop-shadow(0 2px 1px rgba(80, 74, 65, 0.12));
+  z-index: 6;
+}
+
+.envelope-seal {
+  position: absolute;
+  left: 50%;
+  top: 75%;
+  width: 56px;
+  height: 56px;
+  transform: translate(-50%, -50%);
+  object-fit: contain;
+  filter: drop-shadow(0 2px 5px rgba(80, 20, 20, 0.36));
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  z-index: 7;
+  pointer-events: none;
+  user-select: none;
+}
+
+.envelope.open .envelope-flap {
+  transform: rotateX(170deg);
+}
+
+.envelope.open .envelope-seal {
+  opacity: 0;
+  transform: translate(-50%, -72%) scale(0.78);
+}
+
+.paper-card {
+  position: absolute;
+  left: 30px;
+  top: 150px;
+  transform: translateX(-50%);
+  width: min(286px, 74vw);
+  padding: 20px 22px 18px;
+  background: #fffbfe;
+  border: 1px solid #efcfdf;
+  box-shadow: 0 8px 18px rgba(173, 99, 136, 0.2);
+  font-family: "Parisienne", "Bradley Hand", "Segoe Script", cursive;
+  font-size: 1.12rem;
+  line-height: 1.28;
+  z-index: 10;
+}
+
+.paper-card h2 {
+  margin: 0 0 8px;
+  font-size: 1.55rem;
+  font-weight: 600;
+}
+
+.paper-card p {
+  margin: 6px 0;
+}
+
+@media (max-width: 700px) {
+  .app {
+    padding: 18px 14px;
+  }
+
+  .slide-card {
+    width: 100%;
+    flex-basis: 76%;
+  }
+
+  .slide-card img {
+    height: 47vh;
+  }
+
+  .paper-card {
+    width: min(272px, 86vw);
+    font-size: 1.05rem;
+  }
+
+  .paper-card h2 {
+    font-size: 1.4rem;
+  }
+}
