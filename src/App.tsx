@@ -119,6 +119,81 @@ const STORY_VIEW_MS = 2800;
 const PREVIEW_SHARP_MS = 450;
 const SCROLL_SETTLE_MS = 1200;
 const PROGRESS_TICK_MS = 40;
+const preloadedImages = new Set<string>();
+const EVENT_DATE_ICS = "20260308";
+const EVENT_TIMEZONE = "Asia/Almaty";
+
+const preloadImage = (src: string) =>
+  new Promise<void>((resolve) => {
+    if (preloadedImages.has(src)) {
+      resolve();
+      return;
+    }
+
+    const img = new Image();
+    img.onload = () => {
+      preloadedImages.add(src);
+      resolve();
+    };
+    img.onerror = () => {
+      resolve();
+    };
+    img.src = src;
+  });
+
+const escapeIcsText = (value: string) =>
+  value
+    .replace(/\\/g, "\\\\")
+    .replace(/,/g, "\\,")
+    .replace(/;/g, "\\;")
+    .replace(/\n/g, "\\n");
+
+const formatUtcForIcs = (date: Date) => {
+  const y = date.getUTCFullYear();
+  const m = `${date.getUTCMonth() + 1}`.padStart(2, "0");
+  const d = `${date.getUTCDate()}`.padStart(2, "0");
+  const h = `${date.getUTCHours()}`.padStart(2, "0");
+  const min = `${date.getUTCMinutes()}`.padStart(2, "0");
+  const s = `${date.getUTCSeconds()}`.padStart(2, "0");
+  return `${y}${m}${d}T${h}${min}${s}Z`;
+};
+
+const addHoursToHm = (hm: string, hoursToAdd: number) => {
+  const [h, m] = hm.split(":").map((part) => Number(part));
+  const total = h * 60 + m + hoursToAdd * 60;
+  const nextMinutes = ((total % (24 * 60)) + 24 * 60) % (24 * 60);
+  const nextH = `${Math.floor(nextMinutes / 60)}`.padStart(2, "0");
+  const nextM = `${nextMinutes % 60}`.padStart(2, "0");
+  return `${nextH}${nextM}`;
+};
+
+const buildCalendarIcs = (girl: Girl) => {
+  const [startH, startM] = girl.invitation.time.split(":");
+  const startHm = `${startH}${startM}`;
+  const endHm = addHoursToHm(girl.invitation.time, 3);
+  const uid = `invite-8march-${girl.name}-${EVENT_DATE_ICS}@vibe.local`;
+  const location = `${girl.invitation.place}, ${girl.invitation.city}`;
+  const summary = `Вечер 8 Марта — ${girl.name}`;
+  const description = girl.invitation.message;
+
+  return [
+    "BEGIN:VCALENDAR",
+    "VERSION:2.0",
+    "CALSCALE:GREGORIAN",
+    "METHOD:PUBLISH",
+    "PRODID:-//8 March Invitation//RU",
+    "BEGIN:VEVENT",
+    `UID:${uid}`,
+    `DTSTAMP:${formatUtcForIcs(new Date())}`,
+    `DTSTART;TZID=${EVENT_TIMEZONE}:${EVENT_DATE_ICS}T${startHm}00`,
+    `DTEND;TZID=${EVENT_TIMEZONE}:${EVENT_DATE_ICS}T${endHm}00`,
+    `SUMMARY:${escapeIcsText(summary)}`,
+    `DESCRIPTION:${escapeIcsText(description)}`,
+    `LOCATION:${escapeIcsText(location)}`,
+    "END:VEVENT",
+    "END:VCALENDAR",
+  ].join("\r\n");
+};
 
 export default function App() {
   const [stage, setStage] = useState<Stage>("select");
@@ -150,6 +225,33 @@ export default function App() {
       ["--girl-bg" as string]: `url("${selectedGirl.background}")`,
     } as CSSProperties;
   }, [selectedGirl]);
+
+  const calendarHref = useMemo(() => {
+    if (!selectedGirl) return "#";
+    return `data:text/calendar;charset=utf-8,${encodeURIComponent(
+      buildCalendarIcs(selectedGirl)
+    )}`;
+  }, [selectedGirl]);
+
+  const calendarFilename = useMemo(() => {
+    if (!selectedGirl) return "priglashenie-8-marta.ics";
+    return `priglashenie-8-marta-${selectedGirl.name}.ics`;
+  }, [selectedGirl]);
+
+  useEffect(() => {
+    const allSources = [
+      ...new Set(
+        girls.flatMap((girl) => [
+          girl.background,
+          ...girl.slides.map((slide) => slide.src),
+        ])
+      ),
+    ];
+
+    allSources.forEach((src) => {
+      void preloadImage(src);
+    });
+  }, []);
 
   useEffect(() => {
     if (stage !== "slideshow" || !emblaApi) return;
@@ -224,7 +326,10 @@ export default function App() {
     };
   }, [stage, emblaApi, slides.length, currentIndex]);
 
-  const startFlow = (girl: Girl) => {
+  const startFlow = async (girl: Girl) => {
+    const girlSources = [girl.background, ...girl.slides.map((slide) => slide.src)];
+    await Promise.all(girlSources.map((src) => preloadImage(src)));
+
     setSelectedGirl(girl);
     setCurrentIndex(0);
     setSlideProgress(0);
@@ -382,6 +487,9 @@ export default function App() {
                   {selectedGirl.invitation.city}
                 </p>
                 <p>{selectedGirl.invitation.message}</p>
+                <a className="calendar-btn" href={calendarHref} download={calendarFilename}>
+                  Добавить в Apple Календарь
+                </a>
               </motion.article>
             </div>
           </motion.section>

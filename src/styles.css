@@ -304,6 +304,24 @@ h1 {
   margin: 6px 0;
 }
 
+.calendar-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: #e78fb8;
+  color: #fff9fd;
+  text-decoration: none;
+  font-family: "Nunito", "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  box-shadow: 0 6px 12px rgba(173, 99, 136, 0.24);
+}
+
+.calendar-btn:hover {
+  background: #d678a4;
+}
+
 @media (max-width: 700px) {
   .app {
     padding: 18px 14px;
