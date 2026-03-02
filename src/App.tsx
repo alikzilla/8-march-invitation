@@ -203,6 +203,8 @@ export default function App() {
   const [previewSharp, setPreviewSharp] = useState(false);
   const [envelopeOpen, setEnvelopeOpen] = useState(false);
   const [showCard, setShowCard] = useState(false);
+  const [isPreparing, setIsPreparing] = useState(false);
+  const [preparingName, setPreparingName] = useState<string | null>(null);
 
   const [emblaRef, emblaApi] = useEmblaCarousel({
     axis: "y",
@@ -327,23 +329,36 @@ export default function App() {
   }, [stage, emblaApi, slides.length, currentIndex]);
 
   const startFlow = async (girl: Girl) => {
-    const girlSources = [girl.background, ...girl.slides.map((slide) => slide.src)];
-    await Promise.all(girlSources.map((src) => preloadImage(src)));
+    if (isPreparing) return;
 
-    setSelectedGirl(girl);
-    setCurrentIndex(0);
-    setSlideProgress(0);
-    setPreviewSharp(false);
-    setEnvelopeOpen(false);
-    setShowCard(false);
-    setStage("slideshow");
+    setIsPreparing(true);
+    setPreparingName(girl.name);
 
-    const audio = audioRef.current;
-    if (audio) {
-      audio.volume = 0.35;
-      void audio.play().catch(() => {
-        // Playback may be blocked by browser policy.
-      });
+    try {
+      const girlSources = [
+        girl.background,
+        ...girl.slides.map((slide) => slide.src),
+      ];
+      await Promise.all(girlSources.map((src) => preloadImage(src)));
+
+      setSelectedGirl(girl);
+      setCurrentIndex(0);
+      setSlideProgress(0);
+      setPreviewSharp(false);
+      setEnvelopeOpen(false);
+      setShowCard(false);
+      setStage("slideshow");
+
+      const audio = audioRef.current;
+      if (audio) {
+        audio.volume = 0.35;
+        void audio.play().catch(() => {
+          // Playback may be blocked by browser policy.
+        });
+      }
+    } finally {
+      setIsPreparing(false);
+      setPreparingName(null);
     }
   };
 
@@ -370,11 +385,21 @@ export default function App() {
             <h1>Кто открыл открытку?</h1>
             <div className="name-list">
               {sortedGirls.map((girl) => (
-                <button key={girl.name} onClick={() => startFlow(girl)}>
+                <button
+                  key={girl.name}
+                  onClick={() => startFlow(girl)}
+                  disabled={isPreparing}
+                >
                   {girl.name}
                 </button>
               ))}
             </div>
+            {isPreparing && (
+              <div className="loading-overlay" role="status" aria-live="polite">
+                <span className="loading-spinner" />
+                <p>Загружаю фото для {preparingName}...</p>
+              </div>
+            )}
           </motion.section>
         )}
 
