@@ -324,7 +324,7 @@ h1 {
 .paper-card {
   position: absolute;
   left: 30px;
-  top: 150px;
+  top: 120px;
   transform: translateX(-50%);
   width: min(305px, 74vw);
   padding: 20px 22px 18px;
