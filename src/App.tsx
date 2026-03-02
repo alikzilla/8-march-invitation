@@ -51,10 +51,22 @@ const girls: Girl[] = [
     name: "Айша",
     background: "/img/aisha.jpg",
     slides: [
-      { src: "/img/aisha/1.jpg", text: "Ты умеешь делать обычный день особенно теплым." },
-      { src: "/img/aisha/2.jpg", text: "В твоей мягкости чувствуется настоящая сила." },
-      { src: "/img/aisha/3.jpg", text: "С тобой всегда легко, светло и очень спокойно." },
-      { src: "/img/aisha/4.jpg", text: "Пусть сегодня для тебя сбудется маленькое чудо." },
+      {
+        src: "/img/aisha/1.jpg",
+        text: "Ты умеешь делать обычный день особенно теплым.",
+      },
+      {
+        src: "/img/aisha/2.jpg",
+        text: "В твоей мягкости чувствуется настоящая сила.",
+      },
+      {
+        src: "/img/aisha/3.jpg",
+        text: "С тобой всегда легко, светло и очень спокойно.",
+      },
+      {
+        src: "/img/aisha/4.jpg",
+        text: "Пусть сегодня для тебя сбудется маленькое чудо.",
+      },
     ],
     invitation: {
       ...invitationAstana,
@@ -66,10 +78,22 @@ const girls: Girl[] = [
     name: "Асем",
     background: "/img/assem.jpg",
     slides: [
-      { src: "/img/assem/1.jpg", text: "Ты всегда выглядишь изящно и уверенно." },
-      { src: "/img/assem/2.jpg", text: "Твоя искренность и доброта очень ценны." },
-      { src: "/img/assem/3.jpg", text: "Ты вдохновляешь своей энергией и вкусом к жизни." },
-      { src: "/img/assem/4.jpg", text: "Пусть этот день принесет тебе много радости." },
+      {
+        src: "/img/assem/1.jpg",
+        text: "Ты всегда выглядишь изящно и уверенно.",
+      },
+      {
+        src: "/img/assem/2.jpg",
+        text: "Твоя искренность и доброта очень ценны.",
+      },
+      {
+        src: "/img/assem/3.jpg",
+        text: "Ты вдохновляешь своей энергией и вкусом к жизни.",
+      },
+      {
+        src: "/img/assem/4.jpg",
+        text: "Пусть этот день принесет тебе много радости.",
+      },
     ],
     invitation: {
       ...invitationAlmaty,
@@ -81,10 +105,22 @@ const girls: Girl[] = [
     name: "София",
     background: "/img/sophie.jpg",
     slides: [
-      { src: "/img/sophie/1.jpg", text: "У тебя особенный стиль и очень красивый свет внутри." },
-      { src: "/img/sophie/2.jpg", text: "Ты добавляешь в каждый момент немного магии." },
-      { src: "/img/sophie/3.jpg", text: "С тобой хочется делиться лучшими новостями и мечтами." },
-      { src: "/img/sophie/4.jpg", text: "Пусть сегодня тебя окружают только приятные эмоции." },
+      {
+        src: "/img/sophie/1.jpg",
+        text: "У тебя особенный стиль и очень красивый свет внутри.",
+      },
+      {
+        src: "/img/sophie/2.jpg",
+        text: "Ты добавляешь в каждый момент немного магии.",
+      },
+      {
+        src: "/img/sophie/3.jpg",
+        text: "С тобой хочется делиться лучшими новостями и мечтами.",
+      },
+      {
+        src: "/img/sophie/4.jpg",
+        text: "Пусть сегодня тебя окружают только приятные эмоции.",
+      },
     ],
     invitation: {
       ...invitationAlmaty,
@@ -96,10 +132,19 @@ const girls: Girl[] = [
     name: "Анеля",
     background: "/img/anelya.jpg",
     slides: [
-      { src: "/img/anelya/1.jpg", text: "Твой смех моментально поднимает настроение." },
+      {
+        src: "/img/anelya/1.jpg",
+        text: "Твой смех моментально поднимает настроение.",
+      },
       { src: "/img/anelya/2.jpg", text: "Ты яркая, смелая и очень настоящая." },
-      { src: "/img/anelya/3.jpg", text: "С тобой даже тихий вечер становится интересным." },
-      { src: "/img/anelya/4.jpg", text: "Пусть этот праздник будет таким же красивым, как ты." },
+      {
+        src: "/img/anelya/3.jpg",
+        text: "С тобой даже тихий вечер становится интересным.",
+      },
+      {
+        src: "/img/anelya/4.jpg",
+        text: "Пусть этот праздник будет таким же красивым, как ты.",
+      },
     ],
     invitation: {
       ...invitationAstana,
@@ -111,10 +156,22 @@ const girls: Girl[] = [
     name: "Жулдыз",
     background: "/img/zhuldyz.jpg",
     slides: [
-      { src: "/img/zhuldyz/1.jpg", text: "Ты сияешь так ярко, что это чувствуется всем вокруг." },
-      { src: "/img/zhuldyz/2.jpg", text: "В тебе есть редкое сочетание нежности и характера." },
-      { src: "/img/zhuldyz/3.jpg", text: "Твоя энергия заряжает и делает день лучше." },
-      { src: "/img/zhuldyz/4.jpg", text: "Пусть этот вечер подарит тебе вдохновение и радость." },
+      {
+        src: "/img/zhuldyz/1.jpg",
+        text: "Ты сияешь так ярко, что это чувствуется всем вокруг.",
+      },
+      {
+        src: "/img/zhuldyz/2.jpg",
+        text: "В тебе есть редкое сочетание нежности и характера.",
+      },
+      {
+        src: "/img/zhuldyz/3.jpg",
+        text: "Твоя энергия заряжает и делает день лучше.",
+      },
+      {
+        src: "/img/zhuldyz/4.jpg",
+        text: "Пусть этот вечер подарит тебе вдохновение и радость.",
+      },
     ],
     invitation: {
       ...invitationAstana,
@@ -126,10 +183,22 @@ const girls: Girl[] = [
     name: "Аружан",
     background: "/img/aruzhan.jpg",
     slides: [
-      { src: "/img/aruzhan/1.jpg", text: "Рядом с тобой чувствуются спокойствие и тепло." },
-      { src: "/img/aruzhan/2.jpg", text: "Ты очень внимательная и искренняя к людям." },
-      { src: "/img/aruzhan/3.jpg", text: "Твоя энергия вдохновляет двигаться вперед." },
-      { src: "/img/aruzhan/4.png", text: "Пусть этот день будет для тебя по-настоящему счастливым." },
+      {
+        src: "/img/aruzhan/1.jpg",
+        text: "Рядом с тобой чувствуются спокойствие и тепло.",
+      },
+      {
+        src: "/img/aruzhan/2.jpg",
+        text: "Ты очень внимательная и искренняя к людям.",
+      },
+      {
+        src: "/img/aruzhan/3.jpg",
+        text: "Твоя энергия вдохновляет двигаться вперед.",
+      },
+      {
+        src: "/img/aruzhan/4.png",
+        text: "Пусть этот день будет для тебя по-настоящему счастливым.",
+      },
     ],
     invitation: {
       ...invitationAlmaty,
@@ -142,7 +211,7 @@ const girls: Girl[] = [
 const wait = (ms: number) =>
   new Promise<void>((resolve) => window.setTimeout(resolve, ms));
 const sideClass = (index: number) => (index % 2 === 0 ? "left" : "right");
-const STORY_VIEW_MS = 2800;
+const STORY_VIEW_MS = 3500;
 const PREVIEW_SHARP_MS = 450;
 const SCROLL_SETTLE_MS = 1200;
 const PROGRESS_TICK_MS = 40;
@@ -245,7 +314,7 @@ export default function App() {
   const slides = selectedGirl?.slides ?? [];
   const sortedGirls = useMemo(
     () => [...girls].sort((a, b) => a.name.localeCompare(b.name, "ru")),
-    []
+    [],
   );
 
   const appStyle = useMemo(() => {
@@ -258,7 +327,7 @@ export default function App() {
   const calendarHref = useMemo(() => {
     if (!selectedGirl) return "#";
     return `data:text/calendar;charset=utf-8,${encodeURIComponent(
-      buildCalendarIcs(selectedGirl)
+      buildCalendarIcs(selectedGirl),
     )}`;
   }, [selectedGirl]);
 
@@ -273,7 +342,7 @@ export default function App() {
         girls.flatMap((girl) => [
           girl.background,
           ...girl.slides.map((slide) => slide.src),
-        ])
+        ]),
       ),
     ];
 
@@ -539,21 +608,27 @@ export default function App() {
                     <strong>Место:</strong> {selectedGirl.invitation.place},{" "}
                     {selectedGirl.invitation.city}
                   </p>
-                  <a
-                    className="place-plus-btn"
-                    href={selectedGirl.invitation.link}
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label={`Открыть локацию: ${selectedGirl.invitation.place}`}
-                  >
-                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M12 21s-6-5.2-6-10a6 6 0 1 1 12 0c0 4.8-6 10-6 10z" />
-                      <circle cx="12" cy="11" r="2.4" />
-                    </svg>
-                  </a>
+                  {stage === "envelope" && (
+                    <a
+                      className="place-plus-btn"
+                      href={selectedGirl.invitation.link}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={`Открыть локацию: ${selectedGirl.invitation.place}`}
+                    >
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 21s-6-5.2-6-10a6 6 0 1 1 12 0c0 4.8-6 10-6 10z" />
+                        <circle cx="12" cy="11" r="2.4" />
+                      </svg>
+                    </a>
+                  )}
                 </div>
                 <p>{selectedGirl.invitation.message}</p>
-                <a className="calendar-btn" href={calendarHref} download={calendarFilename}>
+                <a
+                  className="calendar-btn"
+                  href={calendarHref}
+                  download={calendarFilename}
+                >
                   Добавить в Apple Календарь
                 </a>
               </motion.article>
