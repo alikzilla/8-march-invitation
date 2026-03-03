@@ -31,7 +31,7 @@ const invitationAlmaty: Invitation = {
   time: "20:00",
   place: "Penka Cafe",
   city: "Алматы",
-  link: "https://2gis.kz/almaty/firm/70000001087539898/tab/prices",
+  link: "https://2gis.kz/almaty/firm/70000001087539898",
   message:
     "Приглашаю тебя провести этот вечер в теплой атмосфере, с улыбками и красивыми моментами.",
 };
@@ -39,9 +39,9 @@ const invitationAlmaty: Invitation = {
 const invitationAstana: Invitation = {
   date: "9 марта 2026",
   time: "19:00",
-  place: "Aurora Cafe",
+  place: "Bloom Room Cafe",
   city: "Астана",
-  link: "https://2gis.kz/astana/firm/70000001087773789/tab/prices",
+  link: "https://2gis.kz/astana/geo/70000001080574946",
   message:
     "Давай проведем этот особенный вечер вместе: с добрыми словами, смехом и нежным настроением.",
 };
