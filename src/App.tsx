@@ -11,11 +11,12 @@ type Slide = {
 };
 
 type Invitation = {
-  date: string;
-  time: string;
-  place: string;
-  city: string;
-  link: string;
+  date?: string;
+  time?: string;
+  place?: string;
+  city?: string;
+  link?: string;
+  abroad?: boolean;
   message: string;
 };
 
@@ -26,17 +27,7 @@ type Girl = {
   invitation: Invitation;
 };
 
-const invitationAlmaty: Invitation = {
-  date: "9 марта 2026",
-  time: "20:00",
-  place: "Penka Cafe",
-  city: "Алматы",
-  link: "https://2gis.kz/almaty/firm/70000001087539898",
-  message:
-    "Приглашаю тебя провести этот вечер в теплой атмосфере, с улыбками и красивыми моментами.",
-};
-
-const invitationAstana: Invitation = {
+const invitationKazakhstan: Invitation = {
   date: "9 марта 2026",
   time: "19:00",
   place: "Bloom Room Cafe",
@@ -48,162 +39,111 @@ const invitationAstana: Invitation = {
 
 const girls: Girl[] = [
   {
-    name: "Айша",
-    background: "/img/aisha.jpg",
+    name: "Асыл",
+    background: "/img/asyl.jpg",
     slides: [
       {
-        src: "/img/aisha/1.jpg",
-        text: "Ты умеешь делать обычный день особенно теплым.",
+        src: "/img/asyl/1.jpeg",
+        text: "Ты умеешь замечать важное в мелочах и делать это искусством.",
       },
       {
-        src: "/img/aisha/2.jpg",
-        text: "В твоей мягкости чувствуется настоящая сила.",
+        src: "/img/asyl/2.jpeg",
+        text: "В твоей улыбке чувствуется мудрость и большое доброе сердце.",
       },
       {
-        src: "/img/aisha/3.jpg",
-        text: "С тобой всегда легко, светло и очень спокойно.",
+        src: "/img/asyl/3.jpeg",
+        text: "Твоя радость настолько настоящая, что мир вокруг начинает светиться в ответ.",
       },
       {
-        src: "/img/aisha/4.jpg",
-        text: "Пусть сегодня для тебя сбудется маленькое чудо.",
+        src: "/img/asyl/4.jpeg",
+        text: "Ты — тот самый человек, рядом с которым каждый чувствует себя нужным.",
       },
     ],
     invitation: {
-      ...invitationAstana,
+      ...invitationKazakhstan,
       message:
-        "Айша, очень жду тебя на нашем уютном вечере в Астане. Хочу, чтобы этот праздник подарил тебе тепло, смех и красивое настроение.",
+        "Асыл, очень ждем тебя на нашем уютном вечере в Астане. Хочу, чтобы этот праздник подарил тебе тепло, смех и красивое настроение.",
     },
   },
   {
-    name: "Асем",
-    background: "/img/assem.jpg",
+    name: "Дарина",
+    background: "/img/darina.jpg",
     slides: [
       {
-        src: "/img/assem/1.jpg",
-        text: "Ты всегда выглядишь изящно и уверенно.",
+        src: "/img/darina/1.jpeg",
+        text: "Твои победы выглядят так естественно, будто для тебя нет ничего невозможного.",
       },
       {
-        src: "/img/assem/2.jpg",
-        text: "Твоя искренность и доброта очень ценны.",
+        src: "/img/darina/4.jpeg",
+        text: "Рядом с тобой всегда чувствуется, что жизнь — это прекрасное приключение.",
       },
       {
-        src: "/img/assem/3.jpg",
-        text: "Ты вдохновляешь своей энергией и вкусом к жизни.",
+        src: "/img/darina/2.jpeg",
+        text: "С тобой даже обычный поход в бар превращается в легендарную историю.",
       },
       {
-        src: "/img/assem/4.jpg",
-        text: "Пусть этот день принесет тебе много радости.",
+        src: "/img/darina/3.jpeg",
+        text: "Твоя поддержка — это та самая тихая гавань, в которой каждый находит силы.",
       },
     ],
     invitation: {
-      ...invitationAlmaty,
+      abroad: true,
       message:
-        "Асем, буду очень рада увидеть тебя на праздничном вечере в Алматы. Давай красиво отметим этот день — с улыбками, разговорами и любимой атмосферой.",
+        "ты сейчас не рядом с нами, но мы тебя очень любим и от всей души поздравляем. Ждем тебя в Казахстане и обязательно отметим вместе.",
     },
   },
   {
-    name: "София",
-    background: "/img/sophie.jpg",
+    name: "Айко",
+    background: "/img/aiko.jpg",
     slides: [
       {
-        src: "/img/sophie/1.jpg",
-        text: "У тебя особенный стиль и очень красивый свет внутри.",
+        src: "/img/aiko/1.jpeg",
+        text: "Ты выглядишь как главная героиня истории, которую хочется дочитать до конца.",
       },
       {
-        src: "/img/sophie/2.jpg",
-        text: "Ты добавляешь в каждый момент немного магии.",
+        src: "/img/aiko/4.jpeg",
+        text: "Твой образ — это чистое вдохновение, будто сошедшее со страниц классического романа.",
       },
       {
-        src: "/img/sophie/3.jpg",
-        text: "С тобой хочется делиться лучшими новостями и мечтами.",
+        src: "/img/aiko/3.jpeg",
+        text: "Рядом с тобой даже бесконечные горизонты кажутся понятными и уютными.",
       },
       {
-        src: "/img/sophie/4.jpg",
-        text: "Пусть сегодня тебя окружают только приятные эмоции.",
+        src: "/img/aiko/2.jpeg",
+        text: "В твоей простоте чувствуется больше содержания, чем в самых сложных фанфиках.",
       },
     ],
     invitation: {
-      ...invitationAlmaty,
+      ...invitationKazakhstan,
       message:
-        "София, приглашаю тебя на праздничный вечер в Алматы. Очень хочу провести этот день рядом с тобой — красиво, душевно и по-весеннему тепло.",
+        "Айко, приглашаем тебя на праздничный вечер в Астаны. Очень хотим провести этот день рядом с тобой — красиво, душевно и по-весеннему тепло.",
     },
   },
   {
-    name: "Анеля",
-    background: "/img/anelya.jpg",
+    name: "Дильназ",
+    background: "/img/dilnaz.jpg",
     slides: [
       {
-        src: "/img/anelya/1.jpg",
-        text: "Твой смех моментально поднимает настроение.",
-      },
-      { src: "/img/anelya/2.jpg", text: "Ты яркая, смелая и очень настоящая." },
-      {
-        src: "/img/anelya/3.jpg",
-        text: "С тобой даже тихий вечер становится интересным.",
+        src: "/img/dilnaz/1.jpeg",
+        text: "Ты выглядишь как человек, который знает цену истине и всегда находит нужные слова.",
       },
       {
-        src: "/img/anelya/4.jpg",
-        text: "Пусть этот праздник будет таким же красивым, как ты.",
+        src: "/img/dilnaz/4.jpeg",
+        text: "Ты покоряешь города так же легко и изящно, как и новые жизненные вершины.",
+      },
+      {
+        src: "/img/dilnaz/3.jpeg",
+        text: "Твой путь всегда ведет к свету, потому что ты сама его создаешь.",
+      },
+      {
+        src: "/img/dilnaz/2.jpeg",
+        text: "Твоя поддержка — это та самая тихая сила, которая помогает другим сворачивать горы.",
       },
     ],
     invitation: {
-      ...invitationAstana,
+      abroad: true,
       message:
-        "Анеля, жду тебя на нашем праздничном вечере в Астане. Хочу, чтобы ты отдохнула, улыбалась и почувствовала, как сильно тебя ценят.",
-    },
-  },
-  {
-    name: "Жулдыз",
-    background: "/img/zhuldyz.jpg",
-    slides: [
-      {
-        src: "/img/zhuldyz/1.jpg",
-        text: "Ты сияешь так ярко, что это чувствуется всем вокруг.",
-      },
-      {
-        src: "/img/zhuldyz/2.jpg",
-        text: "В тебе есть редкое сочетание нежности и характера.",
-      },
-      {
-        src: "/img/zhuldyz/3.jpg",
-        text: "Твоя энергия заряжает и делает день лучше.",
-      },
-      {
-        src: "/img/zhuldyz/4.jpg",
-        text: "Пусть этот вечер подарит тебе вдохновение и радость.",
-      },
-    ],
-    invitation: {
-      ...invitationAstana,
-      message:
-        "Жулдыз, приглашаю тебя на праздничный вечер в Астане. Давай сделаем этот день особенным: с душевными разговорами, смехом и красивыми кадрами.",
-    },
-  },
-  {
-    name: "Аружан",
-    background: "/img/aruzhan.jpg",
-    slides: [
-      {
-        src: "/img/aruzhan/1.jpg",
-        text: "Рядом с тобой чувствуются спокойствие и тепло.",
-      },
-      {
-        src: "/img/aruzhan/2.jpg",
-        text: "Ты очень внимательная и искренняя к людям.",
-      },
-      {
-        src: "/img/aruzhan/3.jpg",
-        text: "Твоя энергия вдохновляет двигаться вперед.",
-      },
-      {
-        src: "/img/aruzhan/4.png",
-        text: "Пусть этот день будет для тебя по-настоящему счастливым.",
-      },
-    ],
-    invitation: {
-      ...invitationAlmaty,
-      message:
-        "Аружан, буду рада видеть тебя на нашем вечере в Алматы. Хочу, чтобы этот праздник запомнился тебе теплом, вниманием и красивыми моментами.",
+        "пусть сейчас ты не рядом с нами, но мы тебя очень любим и искренне поздравляем. Очень ждем тебя в Казахстане, чтобы обнять и отметить вместе.",
     },
   },
 ];
@@ -216,7 +156,7 @@ const PREVIEW_SHARP_MS = 450;
 const SCROLL_SETTLE_MS = 1200;
 const PROGRESS_TICK_MS = 40;
 const preloadedImages = new Set<string>();
-const EVENT_DATE_ICS = "20260308";
+const EVENT_DATE_ICS = "20260309";
 const EVENT_TIMEZONE = "Asia/Almaty";
 
 const preloadImage = (src: string) =>
@@ -264,9 +204,10 @@ const addHoursToHm = (hm: string, hoursToAdd: number) => {
 };
 
 const buildCalendarIcs = (girl: Girl) => {
-  const [startH, startM] = girl.invitation.time.split(":");
+  const time = girl.invitation.time ?? "";
+  const [startH, startM] = time.split(":");
   const startHm = `${startH}${startM}`;
-  const endHm = addHoursToHm(girl.invitation.time, 3);
+  const endHm = addHoursToHm(time, 3);
   const uid = `invite-8march-${girl.name}-${EVENT_DATE_ICS}@vibe.local`;
   const location = `${girl.invitation.place}, ${girl.invitation.city}`;
   const summary = `Вечер 8 Марта — ${girl.name}`;
@@ -595,42 +536,50 @@ export default function App() {
                 }
                 transition={{ duration: 0.9, ease: "easeInOut" }}
               >
-                <h2>Приглашение</h2>
+                {!selectedGirl.invitation.abroad && <h2>Приглашение</h2>}
                 <p>Дорогая {selectedGirl.name},</p>
-                <p>
-                  <strong>Дата:</strong> {selectedGirl.invitation.date}
-                </p>
-                <p>
-                  <strong>Время:</strong> {selectedGirl.invitation.time}
-                </p>
-                <div className="place-row">
-                  <p className="place-text">
-                    <strong>Место:</strong> {selectedGirl.invitation.place},{" "}
-                    {selectedGirl.invitation.city}
+                {!selectedGirl.invitation.abroad && (
+                  <p>
+                    <strong>Дата:</strong> {selectedGirl.invitation.date}
                   </p>
-                  {stage === "envelope" && (
-                    <a
-                      className="place-plus-btn"
-                      href={selectedGirl.invitation.link}
-                      target="_blank"
-                      rel="noreferrer"
-                      aria-label={`Открыть локацию: ${selectedGirl.invitation.place}`}
-                    >
-                      <svg viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M12 21s-6-5.2-6-10a6 6 0 1 1 12 0c0 4.8-6 10-6 10z" />
-                        <circle cx="12" cy="11" r="2.4" />
-                      </svg>
-                    </a>
-                  )}
-                </div>
+                )}
+                {!selectedGirl.invitation.abroad && (
+                  <p>
+                    <strong>Время:</strong> {selectedGirl.invitation.time}
+                  </p>
+                )}
+                {!selectedGirl.invitation.abroad && (
+                  <div className="place-row">
+                    <p className="place-text">
+                      <strong>Место:</strong> {selectedGirl.invitation.place},{" "}
+                      {selectedGirl.invitation.city}
+                    </p>
+                    {stage === "envelope" && (
+                      <a
+                        className="place-plus-btn"
+                        href={selectedGirl.invitation.link}
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label={`Открыть локацию: ${selectedGirl.invitation.place}`}
+                      >
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                          <path d="M12 21s-6-5.2-6-10a6 6 0 1 1 12 0c0 4.8-6 10-6 10z" />
+                          <circle cx="12" cy="11" r="2.4" />
+                        </svg>
+                      </a>
+                    )}
+                  </div>
+                )}
                 <p>{selectedGirl.invitation.message}</p>
-                <a
-                  className="calendar-btn"
-                  href={calendarHref}
-                  download={calendarFilename}
-                >
-                  Добавить в Apple Календарь
-                </a>
+                {!selectedGirl.invitation.abroad && (
+                  <a
+                    className="calendar-btn"
+                    href={calendarHref}
+                    download={calendarFilename}
+                  >
+                    Добавить в Apple Календарь
+                  </a>
+                )}
               </motion.article>
             </div>
           </motion.section>
